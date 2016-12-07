@@ -27,8 +27,16 @@ expected_output_02 = [
 
 
 def place_02(scores):
-    scores = []
+    scores = sorted(input_scores_02, key=lambda score: score[1])
+    scores.reverse()
+    scoresl = [list(x) for x in scores]
+    a = 1
+    for x in scoresl:
+        x[1] = a
+        a = a+1
+    scores = [tuple(x) for x in scoresl]
     return scores
+
 
 print place_02(input_scores_02)
 print place_02(input_scores_02) == expected_output_02
